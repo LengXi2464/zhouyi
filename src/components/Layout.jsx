@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import { setLastVisit } from '../hooks/useProgress';
 
 export default function Layout({ children }) {
   const location = useLocation();
+  const [bugTipHidden, setBugTipHidden] = useState(false);
 
   // 记录最近一次学习位置（首页不记录）
   useEffect(() => {
@@ -14,6 +15,11 @@ export default function Layout({ children }) {
     // 滚动到顶部
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  // 关闭BUG提示
+  const handleCloseBugTip = () => {
+    setBugTipHidden(true);
+  };
 
   return (
     <div className="app">
@@ -31,6 +37,12 @@ export default function Layout({ children }) {
           <p className="footer-note">以道御术 · 以诚明心 ❋ 文化普及仅供参考</p>
         </div>
       </footer>
+      {/* BUG提示条 - 固定在底部 */}
+      <div className={`bug-tip${bugTipHidden ? ' is-hidden' : ''}`} role="alert">
+        <span className="bug-tip-icon">⚠️</span>
+        <span className="bug-tip-text">如遇BUG请刷新</span>
+        <button className="bug-tip-close" onClick={handleCloseBugTip} aria-label="关闭">✕</button>
+      </div>
     </div>
   );
 }

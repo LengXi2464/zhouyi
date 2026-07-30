@@ -2834,3 +2834,88 @@ body.no-csspostion::after { /* 仅修复上面选择器笔误的占位 */ }
     padding: 18px 22px;
   }
 }
+
+/* ---- BUG 提示条 ---- */
+.bug-tip {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, rgba(26, 11, 46, 0.95), rgba(45, 27, 78, 0.95));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid var(--line-gold);
+  border-radius: 999px;
+  color: #ffd740;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 215, 64, 0.2), inset 0 1px 0 rgba(255, 215, 64, 0.2);
+  white-space: nowrap;
+  max-width: calc(100vw - 32px);
+  animation: bugTipGlow 3s ease-in-out infinite alternate;
+}
+
+.bug-tip-icon {
+  font-size: 15px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 64, 0.6));
+}
+
+.bug-tip-text {
+  line-height: 1.4;
+  text-shadow: 0 0 8px rgba(255, 215, 64, 0.4);
+}
+
+.bug-tip-close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffd740;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  opacity: 0.65;
+}
+
+.bug-tip-close:hover {
+  background: rgba(233, 30, 99, 0.3);
+  opacity: 1;
+  color: #fff;
+}
+
+.bug-tip.is-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+@keyframes bugTipGlow {
+  0% { box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 215, 64, 0.15), inset 0 1px 0 rgba(255, 215, 64, 0.15); }
+  100% { box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), 0 0 36px rgba(255, 215, 64, 0.35), inset 0 1px 0 rgba(255, 215, 64, 0.25); }
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .bug-tip {
+    bottom: 14px;
+    padding: 9px 16px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  .bug-tip-icon {
+    font-size: 14px;
+  }
+}

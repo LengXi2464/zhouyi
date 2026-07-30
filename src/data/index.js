@@ -7,10 +7,11 @@ import { modules as wxModules, questions as wxQuestions, section as wxSection } 
 import { modules as bzModules, questions as bzQuestions, section as bzSection } from './sections/bazi.js';
 import { modules as lyModules, questions as lyQuestions, section as lySection } from './sections/liuyao.js';
 import { modules as mhModules, questions as mhQuestions, section as mhSection } from './sections/meihua.js';
+import { modules as lssModules, questions as lssQuestions, section as lssSection } from './sections/liushisi.js';
 
-export const sections = [zySection, wxSection, bzSection, lySection, mhSection];
+export const sections = [zySection, wxSection, bzSection, lySection, mhSection, lssSection];
 
-export const allModules = [...zyModules, ...wxModules, ...bzModules, ...lyModules, ...mhModules];
+export const allModules = [...zyModules, ...wxModules, ...bzModules, ...lyModules, ...mhModules, ...lssModules];
 
 export const allQuestions = [
   ...zyQuestions,
@@ -18,6 +19,7 @@ export const allQuestions = [
   ...bzQuestions,
   ...lyQuestions,
   ...mhQuestions,
+  ...lssQuestions,
 ];
 
 export const allQuestionsByModule = allQuestions.reduce((acc, q) => {

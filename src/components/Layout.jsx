@@ -34,13 +34,13 @@ export default function Layout({ children }) {
       <footer className="footer">
         <div className="footer-inner">
           <p>易学入门 · 周易基础知识学习网站</p>
-          <p className="footer-note">以道御术 · 以诚明心 ❋ 文化普及仅供参考</p>
+          <p className="footer-note">以道御术 · 以诚明心  By:DevKuro</p>
         </div>
       </footer>
       {/* BUG提示条 - 固定在底部 */}
       <div className={`bug-tip${bugTipHidden ? ' is-hidden' : ''}`} role="alert">
         <span className="bug-tip-icon">⚠️</span>
-        <span className="bug-tip-text">如遇BUG请刷新</span>
+        <span className="bug-tip-text">如遇BUG请刷新网页</span>
         <button className="bug-tip-close" onClick={handleCloseBugTip} aria-label="关闭">✕</button>
       </div>
     </div>

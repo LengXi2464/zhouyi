@@ -17,11 +17,18 @@ export default function Layout({ children }) {
 
   return (
     <div className="app">
+      {/* 桃花金粉飘落装饰 */}
+      <div className="petal-container" aria-hidden="true">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <span key={i} className={`petal petal-${i + 1}`} />
+        ))}
+      </div>
       <NavBar />
       <main className="main">{children}</main>
       <footer className="footer">
         <div className="footer-inner">
           <p>易学入门 · 周易基础知识学习网站</p>
+          <p className="footer-note">以道御术 · 以诚明心 ❋ 文化普及仅供参考</p>
         </div>
       </footer>
     </div>

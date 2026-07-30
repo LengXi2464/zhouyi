@@ -1,0 +1,21 @@
+{
+  "name": "yixue-rumen",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "易学入门 —— 周易基础知识学习与答题网站",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "vite": "^5.4.8"
+  }
+}
